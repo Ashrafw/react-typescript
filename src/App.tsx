@@ -25,7 +25,8 @@ function App() {
   const gameArea = useRef<HTMLDivElement>(null);
 
   const moveTetris = (dir: number) => {
-    if (!isColliding(player, stage, { x: dir, y: 0 })) updatePlayerPos({ x: dir, y: 0, collided: false });
+    if (!isColliding(player, stage, { x: dir, y: 0 }))
+      updatePlayerPos({ x: dir, y: 0, collided: false });
   };
 
   const move = ({ keyCode, repeat }: { keyCode: number; repeat: boolean }): void => {
@@ -93,8 +94,15 @@ function App() {
     drop();
   }, dropTime);
   return (
-    <StyledTetrisWrapper role="button" tabIndex={0} onKeyDown={move} onKeyUp={keyUp} ref={gameArea}>
+    <StyledTetrisWrapper
+      role="button"
+      tabIndex={0}
+      onKeyDown={move}
+      onKeyUp={keyUp}
+      ref={gameArea}
+    >
       <StyledTetris>
+        <h1 style={{ margin: "10px" }}>Tetris</h1>
         <div className="display">
           {gameOver ? (
             <>
